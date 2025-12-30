@@ -390,4 +390,125 @@ document.addEventListener('DOMContentLoaded', () => {
         initParticles();
         animateParticles();
     }
+
+    /* 
+       ========================================
+       MAGIC: STORIES LOGIC 
+       ========================================
+    */
+    let currentStoryIndex = 0;
+    const storyProgressContainer = document.getElementById('stories-progress');
+    // lightboxImg is already defined above
+
+    function updateStoryUI() {
+        // Clear existing segments
+        storyProgressContainer.innerHTML = '';
+
+        imageFilenames.forEach((_, index) => {
+            const segment = document.createElement('div');
+            segment.classList.add('story-segment');
+            if (index < currentStoryIndex) segment.classList.add('seen');
+            if (index === currentStoryIndex) segment.classList.add('active');
+            storyProgressContainer.appendChild(segment);
+        });
+
+        // Update image
+        const filename = imageFilenames[currentStoryIndex];
+        lightboxImg.src = `imagenes/Trabajos/${filename}`;
+    }
+
+    document.getElementById('story-prev').addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentStoryIndex > 0) {
+            currentStoryIndex--;
+            updateStoryUI();
+        }
+    });
+
+    document.getElementById('story-next').addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentStoryIndex < imageFilenames.length - 1) {
+            currentStoryIndex++;
+            updateStoryUI();
+        } else {
+            currentStoryIndex = 0; // Loop
+            updateStoryUI();
+        }
+    });
+
+    // Capture clicks on gallery items to set the initial index
+    document.getElementById('gallery-grid').addEventListener('click', (e) => {
+        const item = e.target.closest('.gallery-item');
+        if (item) {
+            const allItems = Array.from(document.querySelectorAll('.gallery-item'));
+            const index = allItems.indexOf(item);
+            if (index !== -1) {
+                currentStoryIndex = index;
+                updateStoryUI();
+            }
+        }
+    }, true);
+
+    /* 
+       ========================================
+       MAGIC: PULL TO REFRESH 
+       ========================================
+    */
+    let startY = 0;
+    let isPulling = false;
+    const refreshContainer = document.getElementById('pull-refresh-container');
+    const spinner = refreshContainer.querySelector('.refresh-spinner');
+
+    window.addEventListener('touchstart', (e) => {
+        if (window.scrollY <= 5) {
+            startY = e.touches[0].clientY;
+            isPulling = false; // Reset, wait for move to confirm
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+        // Only engage if we started near top and are pulling down
+        if (window.scrollY > 5 && !isPulling) return;
+
+        const currentY = e.touches[0].clientY;
+        const pullDistance = currentY - startY;
+
+        if (pullDistance > 0 && window.scrollY <= 5) {
+            if (!isPulling && pullDistance > 10) isPulling = true; // Latch on
+
+            if (isPulling) {
+                // Resistance effect
+                const move = Math.min(pullDistance * 0.4, 100);
+                refreshContainer.style.transform = `translateY(${move - 80}px)`;
+
+                if (pullDistance > 80) {
+                    spinner.style.display = 'block';
+                }
+            }
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        if (!isPulling) return;
+        isPulling = false;
+
+        // Reset
+        refreshContainer.style.transition = 'transform 0.3s ease';
+        refreshContainer.style.transform = 'translateY(-100%)';
+
+        setTimeout(() => {
+            refreshContainer.style.transition = '';
+            spinner.style.display = 'none';
+        }, 300);
+
+        // If we pulled enough (spinner visible), reload page
+        // simplified check: if transform was > something? 
+        // We can just check if spinner is visible roughly
+        if (spinner.style.display === 'block') {
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        }
+    });
+
 });

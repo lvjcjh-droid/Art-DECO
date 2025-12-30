@@ -1283,4 +1283,190 @@ span.ripple {
 .lightbox.active .lightbox-content {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
+}/* 
+   ---------------------------
+   MOBILE LAYOUT REPAIRS 
+   ---------------------------
+*/
+
+@media (max-width: 768px) {
+
+    /* 1. Fix Black Bar / Hero Padding */
+    .content-scroll-wrapper {
+        padding-top: 0 !important;
+        /* Remove top gap so hero touches status bar */
+    }
+
+    /* Ensure hero section has room for content but image covers background */
+    .hero-background-only {
+        position: absolute;
+        /* Lock it behind */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 0;
+    }
+
+    /* Move content down so it doesn't overlap logo too much initially */
+    #nosotros {
+        margin-top: 80vh;
+        /* Push content below the hero visual */
+        background: cubic-bezier(0, 0, 0, 1);
+        /* Just ensuring standard flow */
+        position: relative;
+        z-index: 2;
+        background-color: rgba(5, 5, 5, 0.9);
+        /* Fade in background for text readability */
+        padding-top: 4rem;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-bg-img {
+        object-fit: cover !important;
+        /* Force cover to remove black bars */
+        opacity: 0.8;
+    }
+
+    /* 2. Vertical Process Steps */
+    .process-steps.horizontal-force {
+        flex-direction: column !important;
+        align-items: center !important;
+        overflow-x: hidden !important;
+        /* Disable horizontal scroll */
+        gap: 0;
+        /* Gap handled by connector height */
+        padding: 0;
+    }
+
+    .step-card {
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 0;
+    }
+
+    .step-connector {
+        width: 2px !important;
+        height: 60px !important;
+        /* Vertical line length */
+        margin: 10px auto;
+        display: block !important;
+        min-width: 2px !important;
+        background: rgba(212, 175, 55, 0.3);
+    }
+
+    .step-connector::after {
+        width: 100%;
+        height: 50%;
+        /* Pulse length */
+        top: 0;
+        left: 0;
+        animation: connection-flow-vertical 2s infinite linear;
+        background: #d4af37;
+    }
+
+    /* 3. Center Alignment Force */
+    .hero-text-block,
+    .section-container,
+    .text-group,
+    .hero-content {
+        text-align: center !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .btn-gold {
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        width: 80%;
+        /* Easier to tap */
+        max-width: 300px;
+    }
+
+    .gallery-grid {
+        padding: 0;
+        /* Remove side padding for full width feel */
+        gap: 1rem;
+    }
+}
+
+@keyframes connection-flow-vertical {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(200%);
+        opacity: 0;
+    }
+}/* 
+   ---------------------------
+   MOBILE TUNING (Menu & Hero) 
+   ---------------------------
+*/
+
+@media (max-width: 768px) {
+
+    /* 1. Header Alignment */
+    .header-container {
+        padding: 1rem 1.5rem !important;
+        /* Move button closer to edge */
+        width: 100%;
+    }
+
+    /* 2. Natural Hero Image (No Cropping) */
+    .hero-background-only {
+        position: relative !important;
+        /* Flow naturally in DOM */
+        height: auto !important;
+        min-height: unset !important;
+        width: 100%;
+        display: block;
+        padding-top: 70px;
+        /* Space for the header */
+    }
+
+    .hero-bg-img {
+        position: relative !important;
+        width: 100%;
+        height: auto !important;
+        /* Maintain aspect ratio */
+        max-height: none !important;
+        object-fit: contain !important;
+        /* Show full image */
+        object-position: top center;
+    }
+
+    /* Reset the content positioning since Hero is now flow-based */
+    #nosotros {
+        margin-top: -5px !important;
+        /* Close gap between image and content */
+        position: relative;
+        z-index: 2;
+        background-color: transparent !important;
+        /* Remove the fade background if it looks weird */
+        padding-top: 2rem;
+        /* Re-add background color to whole body is fine, but maybe just for this section */
+        /* Let's keep it clean */
+    }
+
+    /* Fix the overlay if needed? Vignette might be weird if height is auto. 
+       Let's hide standard vignette on mobile or adjust it */
+    .vignette-overlay {
+        display: none;
+        /* Often cleaner on mobile if we have content blocks */
+    }
+
+    /* Ensure text readability if background is black */
+    .hero-text-block p,
+    .hero-text-block h3 {
+        text-shadow: none !important;
+        /* Clean up text */
+    }
 }

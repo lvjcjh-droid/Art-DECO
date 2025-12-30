@@ -979,7 +979,9 @@ p {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
     background-color: #111;
-}/* 
+}
+
+/* 
    SCROLL REVEAL ANIMATION 
    Base class for elements to be revealed
 */
@@ -1020,7 +1022,9 @@ p {
 
 #main-nav a.active::after {
     width: 100%;
-}/* 
+}
+
+/* 
     PRELOADER 
 */
 #preloader {
@@ -1098,7 +1102,9 @@ p {
 .preloader-hidden {
     opacity: 0;
     visibility: hidden;
-}/* 
+}
+
+/* 
    MOBILE RIPPLE EFFECT 
 */
 .ripple-container {
@@ -1161,7 +1167,9 @@ span.ripple {
         padding: 4rem 1.5rem;
         /* More vertical breathing room */
     }
-}/* 
+}
+
+/* 
    ---------------------------
    PREMIUM LOGIC STYLES 
    ---------------------------
@@ -1283,7 +1291,9 @@ span.ripple {
 .lightbox.active .lightbox-content {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
-}/* 
+}
+
+/* 
    ---------------------------
    MOBILE LAYOUT REPAIRS 
    ---------------------------
@@ -1405,7 +1415,9 @@ span.ripple {
         transform: translateY(200%);
         opacity: 0;
     }
-}/* 
+}
+
+/* 
    ---------------------------
    MOBILE TUNING (Menu & Hero) 
    ---------------------------
@@ -1468,5 +1480,124 @@ span.ripple {
     .hero-text-block h3 {
         text-shadow: none !important;
         /* Clean up text */
+    }
+}
+
+/* 
+   ---------------------------
+   MOBILE REFINEMENTS (Polish) 
+   ---------------------------
+*/
+
+@media (max-width: 768px) {
+
+    /* 1. Menu Alignment with Logo Baseline */
+    .header-container {
+        align-items: center !important;
+        /* Force vertical center */
+        padding: 1rem 1.5rem !important;
+    }
+
+    .logo-text {
+        margin: 0 !important;
+        /* Remove any default margins pushing it around */
+        line-height: 1 !important;
+        /* Tighten line height for precise alignment */
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-menu-btn {
+        margin-top: 2px;
+        /* Micro-adjustment to visually match text baseline if needed */
+    }
+
+    /* 2. Process Section Flow (No Internal Scroll) */
+    .process-steps.horizontal-force {
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: visible !important;
+        /* Allow content to flow naturally */
+        overflow-x: visible !important;
+        height: auto !important;
+        width: 100% !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Ensure scroll wrapper for the whole page handles it */
+    .content-scroll-wrapper {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* 
+   ---------------------------
+   FINAL MOBILE POLISH 
+   ---------------------------
+*/
+
+@media (max-width: 768px) {
+
+    /* 1. Aggressive Menu Alignment */
+    .header-container {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        /* This should center them */
+        padding: 0.5rem 1.5rem !important;
+        /* Slightly tighter top/bottom */
+        height: 70px !important;
+        /* Fixed height to ensure centering works */
+    }
+
+    .logo-text {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1;
+        /* Ensure no extra spacing */
+    }
+
+    .mobile-menu-btn {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        height: 40px;
+        /* Target height */
+        width: 40px;
+        align-items: flex-end;
+        /* Align lines to right */
+        padding: 0 !important;
+        margin: 0 !important;
+        /* margin-top removed for pure alignment */
+    }
+
+    /* 2. Process Section - Force No Scroll */
+    .process-steps,
+    .process-steps.horizontal-force {
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: visible !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        height: auto !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        touch-action: auto !important;
+        /* Allow normal scrolling */
+    }
+
+    /* Reset step cards to just be blocks */
+    .step-card {
+        width: 100% !important;
+        max-width: none !important;
+        margin-bottom: 2rem !important;
+        flex: none !important;
+        /* Don't flex shrink/grow */
     }
 }

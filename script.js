@@ -467,22 +467,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-        // Only engage if we started near top and are pulling down
-        if (window.scrollY > 5 && !isPulling) return;
+        // Strict check: Only engage if we are at the ABSOLUTE top and checking for home section
+        // We can check if we are closer to the top.
+        if (window.scrollY > 0 && !isPulling) return;
 
         const currentY = e.touches[0].clientY;
         const pullDistance = currentY - startY;
 
-        if (pullDistance > 0 && window.scrollY <= 5) {
-            if (!isPulling && pullDistance > 10) isPulling = true; // Latch on
+        if (pullDistance > 0 && window.scrollY <= 0) {
+            // Require 20px initial drag before even considering it a "pull" to avoid accidental tiny scrolls
+            if (!isPulling && pullDistance > 30) isPulling = true;
 
             if (isPulling) {
-                // Resistance effect
-                const move = Math.min(pullDistance * 0.4, 100);
+                // Resistance effect (Very strong resistance)
+                // Cap the visual movement at 150px even if they pull 500px
+                const move = Math.min(pullDistance * 0.25, 180);
                 refreshContainer.style.transform = `translateY(${move - 80}px)`;
 
-                if (pullDistance > 80) {
+                // CRITICAL CHANGE: Threshold increased to 300px raw pull distance
+                if (pullDistance > 350) {
                     spinner.style.display = 'block';
+                } else {
+                    spinner.style.display = 'none';
                 }
             }
         }

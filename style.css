@@ -1,0 +1,1286 @@
+/* Reset and Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* Cleaner Body Font */
+    overflow: hidden;
+    background-color: #050505;
+    color: #f0f0f0;
+}
+
+/* 
+   MAIN WRAPPER & BACKGROUND
+   Theme: Luxury Black & Matte
+*/
+.main-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #050505;
+}
+
+.background-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Subtle geometric pattern or noise for texture */
+    background-image:
+        radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.vignette-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 50%, #000000 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 
+   SCROLL WRAPPER
+*/
+.content-scroll-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    z-index: 10;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Custom Gold Scrollbar */
+.content-scroll-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content-scroll-wrapper::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.content-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8a6e2f, #d4af37, #8a6e2f);
+    border-radius: 3px;
+}
+
+/* 
+    HEADER & NAV 
+*/
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(5, 5, 5, 0.98);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    /* Elegant Serif */
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+#main-nav a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    position: relative;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+#main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    transform: translateX(-50%);
+    height: 1px;
+    background: #d4af37;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px #d4af37;
+    /* Glowing line */
+}
+
+#main-nav a:hover {
+    color: #fff;
+    /* Menu Magic Text Gradient */
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.6), 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+#main-nav a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #d4af37;
+    transition: 0.3s;
+}
+
+/* 
+    SECTIONS
+*/
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+
+.section-container {
+    width: 100%;
+    margin: 3rem 0;
+    text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
+    /* Fix for sticky header covering content */
+    scroll-margin-top: 100px;
+}
+
+/* New Hero Layout */
+.hero-section {
+    width: 100%;
+    max-width: 1400px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    /* Reduced gap */
+    width: 100%;
+    /* Add a subtle unifying background glow behind both */
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.hero-visual {
+    flex: 1 1 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text-block {
+    flex: 1 1 500px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Removed Border for better integration */
+    /* border-left: 1px solid rgba(212, 175, 55, 0.3); */
+    padding-left: 0;
+
+    /* Add a subtle backing to make text pop against the image context */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 2;
+}
+
+/* New Hero Layout - Image Tag Method */
+.hero-background-only {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    flex: 0 0 auto;
+    /* Prevent collapsing in flex container */
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Ensures the whole logo is visible */
+    /* Ensures it acts like background-size: contain */
+    object-position: center;
+    z-index: 1;
+    /* Lowest level in the stack but above the negative indices if any */
+    background-color: #050505;
+    /* Black background to fill empty space */
+}
+
+/* Specific adjustment for the new Text Content Section */
+#nosotros .hero-text-block {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Typography Updates */
+.brand-name {
+    font-weight: 400;
+    /* Lighter weight for elegance */
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    margin-top: 1rem;
+
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.sub-brand-name {
+    font-family: 'Playfair Display', serif;
+    /* Unified Font as requested */
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: #fcf6ba;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: #d4af37;
+    margin: 1rem auto 0;
+}
+
+.divider-ornament {
+    font-size: 1.5rem;
+    color: #8a6e2f;
+    /* Darker gold */
+    margin-bottom: 3rem;
+    font-family: serif;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #d1d1d1;
+    font-weight: 300;
+}
+
+.text-group {
+    margin-bottom: 2rem;
+    /* Aligning text to be centered relative to the group for better flow with image if side-by-side */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-group h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    /* Larger for impact */
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.main-logo-hero {
+    max-width: 300px;
+    /* Slightly larger */
+    height: auto;
+    filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.15));
+    margin-bottom: 1rem;
+    transition: transform 0.5s ease;
+    /* Logo Breathing Magic */
+    animation: pulse-glow 4s infinite ease-in-out;
+}
+
+.main-logo-hero:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.4));
+}
+
+@keyframes pulse-glow {
+    0% {
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.15));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.3));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.15));
+    }
+}
+
+/* 
+    GALLERY - Art Deco Frames
+*/
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    /* Double Border Effect */
+    border: 1px solid #d4af37;
+    outline: 4px solid #0a0a0a;
+    outline-offset: -10px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.4s ease, opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Added fade transitions */
+    background: #000;
+
+    /* Scroll Reveal Initial State */
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+}
+
+.gallery-item.reveal-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1);
+    border-color: #fcf6ba;
+}
+
+.gallery-item:hover::before {
+    border-color: #d4af37;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+    filter: grayscale(20%) contrast(110%);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%) contrast(120%);
+}
+
+/* 
+    BUTTONS 
+*/
+.btn-gold {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gold:hover {
+    background: #d4af37;
+    color: #050505;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+
+
+/* 
+    LIGHTBOX 
+*/
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    border: 1px solid #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #d4af37;
+    font-size: 50px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-lightbox:hover {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* 
+    RESPONSIVE 
+*/
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 101;
+    }
+
+    #main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        /* Full screen menu for luxury feel */
+        height: 100%;
+        background: #050505;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s ease-in-out;
+        z-index: 99;
+    }
+
+    #main-nav.active {
+        right: 0;
+    }
+
+    #main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    #main-nav a {
+        font-size: 1.5rem;
+    }
+
+    .brand-name {
+        font-size: 3rem;
+    }
+
+    .section-container {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-content {
+        gap: 2rem;
+        flex-direction: column;
+    }
+
+    .hero-text-block {
+        border-left: none;
+        border-top: 1px solid rgba(212, 175, 55, 0.3);
+        padding-left: 0;
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    .text-group p {
+        text-align: center;
+    }
+}
+
+/* 
+    SERVICES SECTION 
+*/
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.service-card {
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    opacity: 0.5;
+}
+
+.service-card:hover {
+    background: rgba(20, 20, 20, 0.8);
+    border-color: rgba(212, 175, 55, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fcf6ba;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #cccccc;
+}
+
+/* 
+    PROCESS SECTION
+*/
+.process-steps.horizontal-force {
+    display: flex;
+    flex-direction: row;
+    /* Force Horizontal */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    /* Prevent wrapping implies "no vertical" */
+    overflow-x: auto;
+    /* Allow scroll on very small screens if strict horizontal is needed */
+    padding-bottom: 1rem;
+    /* Space for scrollbar if needed */
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+
+
+    /* Override standard mobile column layout for process */
+    .process-steps.horizontal-force {
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        padding: 0 1rem 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Ensure cards have min-width so they don't squish */
+    .process-steps.horizontal-force .step-card {
+        min-width: 200px;
+        flex: 0 0 auto;
+    }
+
+    .process-steps.horizontal-force .step-connector {
+        min-width: 30px;
+        display: block !important;
+        /* Force show line */
+    }
+}
+
+/* 
+    MATERIALS SECTION (WOOD SWATCHES)
+*/
+.materials-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.material-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.material-item:hover {
+    transform: translateY(-10px);
+}
+
+.wood-swatch-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.material-item:hover .wood-swatch-img {
+    border-color: #d4af37;
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+
+.material-item h3 {
+    font-family: 'Playfair Display', serif;
+    color: #d4af37;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* 
+    PROCESS MAGIC
+*/
+.step-card {
+    transition: transform 0.4s ease;
+}
+
+.step-card:hover .step-icon {
+    transform: rotateY(180deg);
+    background: #d4af37;
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    transition: all 0.5s;
+}
+
+.step-card:hover h3 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Animate Line on hover of the container could be tricky with CSS only, 
+   but we can make the line pulse globally */
+.step-connector {
+    position: relative;
+    overflow: hidden;
+}
+
+.step-connector::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    animation: connection-flow 2s infinite;
+}
+
+@keyframes connection-flow {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.step-card {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    position: relative;
+    max-width: 250px;
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    background: #050505;
+    z-index: 2;
+}
+
+.step-connector {
+    flex: 1;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.3);
+    margin-top: 30px;
+    /* Aligns with center of 60px icon */
+    min-width: 50px;
+    max-width: 100px;
+    display: block;
+}
+
+.step-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #fcf6ba;
+    font-size: 1.2rem;
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+@media (max-width: 768px) {
+    .process-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step-connector {
+        display: none;
+        /* Hide horizontal lines on mobile */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}
+
+/* 
+    ENHANCED FOOTER
+*/
+.main-footer {
+    width: 100%;
+    background: #020202;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 4rem 2rem 1rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    color: #d4af37;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    color: #fcf6ba;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #d4af37;
+}
+
+.footer-contact p {
+    color: #888;
+    margin: 0.3rem 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #555;
+    font-size: 0.8rem;
+}
+
+/* 
+    FLOATING WHATSAPP
+*/
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    background-color: #111;
+}/* 
+   SCROLL REVEAL ANIMATION 
+   Base class for elements to be revealed
+*/
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays handled in JS or via nth-child if needed, 
+   but specific classes can help too */
+
+/* 
+   GOLD DUST CANVAS 
+*/
+#gold-dust {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Above the radial gradient background */
+    pointer-events: none;
+}
+
+/* Active Nav State */
+#main-nav a.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+#main-nav a.active::after {
+    width: 100%;
+}/* 
+    PRELOADER 
+*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #050505;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+    opacity: 0;
+    letter-spacing: 5px;
+    animation: loader-pulse 2s infinite ease-in-out;
+}
+
+.loader-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    animation: loader-line-grow 2.5s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(0.95);
+        filter: blur(1px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(0px);
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+}
+
+@keyframes loader-line-grow {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    50% {
+        width: 150px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}/* 
+   MOBILE RIPPLE EFFECT 
+*/
+.ripple-container {
+    position: relative;
+    overflow: hidden;
+}
+
+span.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(212, 175, 55, 0.4);
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* 
+   MOBILE TYPOGRAPHY & LAYOUT REFINEMENTS 
+*/
+@media (max-width: 480px) {
+
+    /* Improve readability */
+    html {
+        font-size: 14px;
+        /* Slightly smaller base for tighter screens */
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        /* Prevent wrapping issues */
+    }
+
+    .hero-text-block h3 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+        /* Readable body text */
+        line-height: 1.6;
+    }
+
+    /* Larger touch targets */
+    .btn-gold,
+    #main-nav a,
+    .mobile-menu-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Padding adjustments */
+    .section-container {
+        padding: 4rem 1.5rem;
+        /* More vertical breathing room */
+    }
+}/* 
+   ---------------------------
+   PREMIUM LOGIC STYLES 
+   ---------------------------
+*/
+
+/* 1. Typewriter Effect */
+.typewriter-cursor::after {
+    content: '|';
+    animation: blink 1s step-start infinite;
+    color: #d4af37;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* 2. Transition Curtain */
+.transition-curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #050505;
+    z-index: 9998;
+    /* Just below preloader but above everything else */
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+    pointer-events: none;
+}
+
+.curtain-active {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    /* To wipe up, we start at bottom scale 0 -> 1. 
+       Then to wipe away, we switch origin to top or just fade out? 
+       Let's wipe UP: origin bottom for entry. Then origin top for exit. */
+}
+
+/* 3. Alive WhatsApp Button */
+.whatsapp-float {
+    /* Existing base styles handled in main CSS, adding animation here */
+    animation: float-pulse 3s infinite ease-in-out;
+}
+
+@keyframes float-pulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 4px 10px rgba(37, 211, 102, 0.3));
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 8px 20px rgba(37, 211, 102, 0.5));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 4px 10px rgba(37, 211, 102, 0.3));
+    }
+}
+
+/* Tooltip */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%) translateX(20px);
+    background: #fff;
+    color: #050505;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 6px solid #fff;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+/* Show tooltip on hover or via JS class */
+.whatsapp-float:hover .whatsapp-tooltip,
+.whatsapp-tooltip.show-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* 4. Theater Mode Enhancements (Lightbox) */
+.lightbox {
+    /* Enforce ultra dark */
+    background-color: #000 !important;
+    transition: opacity 0.5s ease;
+}
+
+.lightbox-content {
+    /* Zoom effect on entry */
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}

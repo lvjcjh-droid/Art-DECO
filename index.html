@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art-DECO Carpintería y Ebanistería</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader-content">
+                <div class="loader-logo">Art-DECO</div>
+                <div class="loader-line"></div>
+            </div>
+        </div>
+
+        <div class="background-texture">
+            <canvas id="gold-dust"></canvas>
+        </div>
+        <div class="vignette-overlay"></div>
+
+        <!-- Sticky Header -->
+        <header id="main-header">
+            <div class="header-container">
+                <div class="logo-text">Art-DECO</div>
+                <button class="mobile-menu-btn" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="content-scroll-wrapper">
+            <!-- Hero Section (Updated) -->
+            <section id="inicio" class="hero-background-only">
+                <img src="./imagenes/Logo/Logo1.jpeg" alt="Fondo Art-DECO" class="hero-bg-img">
+            </section>
+
+            <!-- Moved Content Section (Nuestra Esencia) -->
+            <section id="nosotros" class="section-container">
+                <div class="hero-text-block" style="border: none; padding: 0; text-align: center; align-items: center;">
+                    <h1 class="brand-name">Art-DECO</h1>
+                    <h2 class="sub-brand-name">Carpintería y Ebanistería</h2>
+
+                    <div class="text-group">
+                        <h3 id="typewriter-target">Nuestra Esencia</h3>
+                        <p>
+                            Más que trabajar la madera, inmortalizamos momentos. Creemos firmemente que el lujo
+                            reside en la singularidad; por ello, fusionamos la tradición milenaria del artesano con
+                            una visión contemporánea y sofisticada. Cada pieza que sale de nuestro taller es un
+                            diálogo entre la naturaleza y el arte, concebida no solo para habitar un espacio, sino
+                            para elevarlo. Su visión es nuestra musa; la excelencia, nuestra única firma.
+                        </p>
+                    </div>
+
+                    <!-- Hero CTA -->
+                    <a href="#contacto" class="btn-gold">Iniciar un Proyecto</a>
+                </div>
+            </section>
+
+            <!-- New Services Section -->
+            <section id="servicios" class="section-container">
+                <h2 class="section-title">Nuestras Especialidades</h2>
+                <div class="divider-ornament">❧</div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Maestría en Ebanistería</h3>
+                        <p>El ebanista es el artista del detalle. Nos especializamos en la creación de mobiliario fino
+                            donde la precisión es ley. Maderas preciosas, marquetería delicada y acabados de piano se
+                            unen para crear muebles que son verdaderas obras de arte. Para el hogar o la alta gerencia,
+                            diseñamos piezas con carácter y alma.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>Carpintería Residencial & Comercial</h3>
+                        <p>Soluciones integrales de gran escala sin sacrificar la elegancia. Desde cocinas gourmet y
+                            vestidores de ensueño hasta revestimientos arquitectónicos para hoteles y corporativos.
+                            Combinamos ingeniería y estética para garantizar durabilidad y belleza funcional en cada
+                            instalación.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Section -->
+            <section id="proceso" class="section-container">
+                <h2 class="section-title">El Arte de Crear</h2>
+                <div class="divider-ornament">❧</div>
+
+                <div class="process-steps horizontal-force">
+                    <div class="step-card">
+                        <div class="step-icon">1</div>
+                        <h3>Consulta</h3>
+                        <p>Escuchamos su visión y necesidades para entender la esencia del proyecto.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step-card">
+                        <div class="step-icon">2</div>
+                        <h3>Diseño</h3>
+                        <p>Materializamos la idea en planos y renders, seleccionando maderas y acabados.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step-card">
+                        <div class="step-icon">3</div>
+                        <h3>Creación</h3>
+                        <p>Nuestras manos expertas dan forma a la madera con precisión milimétrica.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step-card">
+                        <div class="step-icon">4</div>
+                        <h3>Entrega</h3>
+                        <p>Instalación impecable en su espacio, asegurando la perfección final.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Materials Section -->
+            <section id="maderas" class="section-container">
+                <h2 class="section-title">Materiales Nobles</h2>
+                <div class="divider-ornament">❧</div>
+                <p style="max-width: 600px; margin: 0 auto 3rem;">Trabajamos con cualquier madera que su proyecto
+                    requiera. Aquí una muestra de nuestras favoritas:</p>
+
+                <div class="materials-grid">
+                    <div class="material-item">
+                        <img src="imagenes/Maderas/nogal.png" alt="Nogal" class="wood-swatch-img">
+                        <h3>Nogal</h3>
+                    </div>
+                    <div class="material-item">
+                        <img src="imagenes/Maderas/tzalam.png" alt="Tzalam" class="wood-swatch-img">
+                        <h3>Tzalam</h3>
+                    </div>
+                    <div class="material-item">
+                        <img src="imagenes/Maderas/encino.png" alt="Encino" class="wood-swatch-img">
+                        <h3>Encino</h3>
+                    </div>
+                    <div class="material-item">
+                        <img src="imagenes/Maderas/parota.png" alt="Parota" class="wood-swatch-img">
+                        <h3>Parota</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="galeria" class="section-container">
+                <h2 class="section-title">Nuestros Trabajos</h2>
+                <div class="divider-ornament">❧</div>
+                <div id="gallery-grid" class="gallery-grid">
+                    <!-- Populated by script.js -->
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contacto" class="section-container">
+                <h2 class="section-title">Contacto</h2>
+                <div class="divider-ornament">❧</div>
+                <div class="contact-info">
+                    <p>¿Tienes un proyecto en mente?</p>
+                    <a href="https://wa.me/1234567890" class="btn-gold">Consultar por WhatsApp</a>
+                </div>
+            </section>
+
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>Art-DECO</h3>
+                        <p>Carpintería & Ebanistería de Altura.</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Enlaces</h4>
+                        <a href="#inicio">Inicio</a>
+                        <a href="#servicios">Servicios</a>
+                        <a href="#galeria">Galería</a>
+                        <a href="#contacto">Contacto</a>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contacto</h4>
+                        <p>Tel: 5638016836</p>
+                        <p>México</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Art-DECO. Forjado en Madera.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Pull to Refresh Spinner -->
+    <div id="pull-refresh-container">
+        <div class="refresh-spinner"></div>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div id="transition-curtain" class="transition-curtain"></div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5638016836" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+        <div class="whatsapp-tooltip">¿Podemos ayudarte?</div>
+        <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path fill="currentColor"
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+    </a>
+
+    <!-- Lightbox Overlay (Updated for Stories) -->
+    <div id="lightbox" class="lightbox">
+        <div class="stories-progress-bar" id="stories-progress"></div>
+        <div class="story-nav-left" id="story-prev"></div>
+        <div class="story-nav-right" id="story-next"></div>
+
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+    </div>
+</body>
+
+</html>
